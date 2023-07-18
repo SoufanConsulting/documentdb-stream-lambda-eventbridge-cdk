@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/lambdas/product-created.ts"],
+  "sourcesContent": ["import { EventBridgeEvent } from 'aws-lambda';\n\nconst productCreated = async (event: EventBridgeEvent<string, string>): Promise<void> => {\n  console.log('Product Created with Event: ', event);\n};\n\nexport const main = productCreated;\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,IAAM,iBAAiB,OAAO,UAA2D;AACvF,UAAQ,IAAI,gCAAgC,KAAK;AACnD;AAEO,IAAM,OAAO;",
+  "names": []
+}

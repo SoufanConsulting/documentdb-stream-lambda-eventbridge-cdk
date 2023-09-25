@@ -17,8 +17,8 @@
   },
   "gitHub": {
     "template": {
-      "repoURL": "https://github.com/aws-samples/serverless-patterns/tree/main/documentdb-stream-lambda-eventbridge-cdk",
-      "templateURL": "serverless-patterns/documentdb-stream-lambda-eventbridge-cdk",
+      "repoURL": "https://github.com/SoufanConsulting/documentdb-stream-lambda-eventbridge-cdk",
+      "templateURL": "SoufanConsulting/documentdb-stream-lambda-eventbridge-cdk",
       "projectFolder": "documentdb-stream-lambda-eventbridge-cdk",
       "templateFile": "cdk/lib/cdk-stack.ts"
     }

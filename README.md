@@ -18,11 +18,11 @@ Important: this application uses various AWS services and there are costs associ
 
 1. Create a new directory, navigate to that directory in a terminal and clone the GitHub repository:
    ```bash
-   git clone https://github.com/aws-samples/serverless-patterns
+   git clone https://github.com/aws-samples/serverless-patterns](https://github.com/SoufanConsulting/documentdb-stream-lambda-eventbridge-cdk
    ```
 2. Change directory to the pattern directory:
    ```bash
-   cd serverless-patterns/documentdb-stream-lambda-eventbridge-cdk/cdk
+   cd cdk
    ```
 3. Install dependencies:
    ```bash
@@ -68,62 +68,6 @@ This pattern attaches a CDC Lambda Stream to an already existing Amazon Document
 4. AWS Security Group ID for the Amazon DocumentDB Cluster
 5. Amazon DocumentDB Database Name
 6. Amazon DocumentDB Collection Name
-
-### AWS Console Part
-
-1. Open the AWS IoT Console in the second browser window.
-2. In the AWS IoT Core Console, in the `Test` section (left-side pane), select the `MQTT test client`.
-3. Under the `Subscribe to a topic` subscribe to `iot-test-topic` topic.
-4. Open a terminal window and run the following DynamoDB CLI put command to put an item in the DynamoDB table. Before running the command you must edit the {DynamoDBTableName} placeholder with the name of the deployed DynamoDB table. This is printed in the stack outputs on the console by `cdk deploy` command. Note that this requires AWS CLI v2.
-
-```bash
-aws dynamodb put-item \
---table-name "DYNAMODB_TABLE_NAME" \
---item {dynamodb item} \
-
-# Example
-aws dynamodb put-item \
-    --table-name iot-events-table \
-    --item pk={S="MESSAGE#1234"},sk={S="CHANNEL#1231"},messageId={S="1234"}
-```
-
-5. Switch back to the `MQTT test client` and check if you got the stream item you used in the CLI call. For the example above you should see the following output in the `MQTT test client` window, on the `iot-test-topic` topic:
-
-```json
-{
-  "eventID": "5017fda64d0f565da62a8d92f462969a",
-  "eventName": "INSERT",
-  "eventVersion": "1.1",
-  "eventSource": "aws:dynamodb",
-  "awsRegion": "us-east-1",
-  "dynamodb": {
-    "ApproximateCreationDateTime": 1682398613,
-    "Keys": {
-      "sk": {
-        "S": "CHANNEL#1231"
-      },
-      "pk": {
-        "S": "MESSAGE#1234"
-      }
-    },
-    "NewImage": {
-      "sk": {
-        "S": "CHANNEL#1231"
-      },
-      "messageId": {
-        "S": "1234"
-      },
-      "pk": {
-        "S": "MESSAGE#1234"
-      }
-    },
-    "SequenceNumber": "100000000033474848853",
-    "SizeBytes": 69,
-    "StreamViewType": "NEW_AND_OLD_IMAGES"
-  },
-  "eventSourceARN": "arn:aws:dynamodb:us-east-1:{{account-number}}:table/iot-events-table/stream/2023-04-25T04:46:13.030"
-}
-```
 
 ## Cleanup
 
